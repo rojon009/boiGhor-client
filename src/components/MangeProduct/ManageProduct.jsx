@@ -9,7 +9,6 @@ const ManageProduct = () => {
             .then(res => res.data)
             .then(data => {
                 setBooks(data)
-                // console.log(data);
             })
     }, [])
 

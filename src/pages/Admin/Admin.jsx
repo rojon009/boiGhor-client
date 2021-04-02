@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
 import AddProduct from '../../components/AddProduct/AddProduct';
 import ManageProduct from '../../components/MangeProduct/ManageProduct';

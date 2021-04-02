@@ -39,7 +39,7 @@ export
                             </div>
                         )
                     }
-            </>;
+            </>
     };
 
 export default Home;
