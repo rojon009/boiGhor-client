@@ -10,13 +10,15 @@ const Orders = () => {
     const [books, setBooks] = useState([]);
     useEffect(() => {
         if(loggedInUser?.uid) {
-            let boi = []
-            axios.get(`http://localhost:5000/order/${uid}`)
+            let orderedBooks = []
+            axios.get(`${process.env.REACT_APP_SERVER}/order/${uid}`)
                 .then(res => {
                     res.data.forEach(async (order) => {
-                        const ox = await axios.get(`http://localhost:5000/books/${order.bookId}`)
-                        boi = [...boi, ox.data];
-                        setBooks(boi)
+                        const singleOrder = await axios.get(`${process.env.REACT_APP_SERVER}/books/${order.bookId}`)
+                        if(singleOrder.data !== '' || null){
+                            orderedBooks = [...orderedBooks, singleOrder.data];
+                            setBooks(orderedBooks)
+                        }
                     })
                 })
                 .catch(err => console.log(err))

@@ -5,7 +5,7 @@ const ManageProduct = () => {
 
     const [books, setBooks] = useState(null);
     useEffect(() => {
-        axios.get('http://localhost:5000/books')
+        axios.get(`${process.env.REACT_APP_SERVER}/books`)
             .then(res => res.data)
             .then(data => {
                 setBooks(data)
@@ -14,7 +14,7 @@ const ManageProduct = () => {
     }, [])
 
     const deleteBook = (id) => {
-        axios.delete(`http://localhost:5000/books/${id}`)
+        axios.delete(`${process.env.REACT_APP_SERVER}/books/${id}`)
         .then(res => {
             if(res.data) {
                 const filteredBook = books.filter(book => book._id !== id);

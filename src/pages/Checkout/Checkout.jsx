@@ -10,13 +10,13 @@ const Checkout = () => {
     const history = useHistory();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/books/${id}`)
+        axios.get(`${process.env.REACT_APP_SERVER}/books/${id}`)
             .then(res => setOrder(res.data))
     }, [id])
 
     const handleCheckout = () => {
         if(loggedInUser?.uid) {
-            axios.post('http://localhost:5000/order',{
+            axios.post(`${process.env.REACT_APP_SERVER}/order`,{
                 userId: loggedInUser?.uid,
                 bookId: id
             })

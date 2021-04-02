@@ -72,7 +72,7 @@ const Login = () => {
                     {
                         signUp && (
                             <>
-                                <label for="name" className="form-label">Name</label>
+                                <label htmlFor="name" className="form-label">Name</label>
                                 <input className="form-control" id="name" name="name" type="text" placeholder="Name" ref={register({ required: true, minLength: 3 })} />
                                 {errors.name && errors.name.type === 'required' && <span className="form-text text-danger">This field is required</span>}
                                 {errors.name && errors.name.type === 'minLength' && <span className="form-text text-danger">User name require at least 3 character.</span>}
@@ -80,13 +80,13 @@ const Login = () => {
                         )
                     }
                     <br />
-                    <label for="email" className="form-label">Email</label>
+                    <label htmlFor="email" className="form-label">Email</label>
                     <input className="form-control" id="email" name="email" type="email" placeholder="Email" ref={register({ required: true, pattern: { value: regex, message: 'Email is not Valid.' } })} />
                     {errors.email && errors.email.type === 'required' && <span className="form-text text-danger">This field is required</span>}
                     {errors.email?.message && <span className="form-text text-danger">{errors.email?.message}</span>}
 
                     <br />
-                    <label for="password" className="form-label">Password</label>
+                    <label htmlFor="password" className="form-label">Password</label>
                     <input className="form-control" id="password" name="password" type="password" placeholder="Password" ref={register({ required: true, minLength: 6 })} />
                     {errors.password && errors.password.type === 'required' && <span className="form-text text-danger">This field is required</span>}
                     {errors.password && errors.password.type === 'minLength' && <span className="form-text text-danger">Password must be at least 6 character</span>}
@@ -94,7 +94,7 @@ const Login = () => {
                         signUp && (
                             <>
                                 <br />
-                                <label for="confirm_password" className="form-label">Confirm Password</label>
+                                <label htmlFor="confirm_password" className="form-label">Confirm Password</label>
                                 <input className="form-control" id="confirm_password" name="confirm_password" type="password" placeholder="Confirm Password" ref={register({
                                     required: true, validate: {
                                         confirm: value => value === watch('password')

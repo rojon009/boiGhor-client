@@ -32,7 +32,7 @@ const AddProduct = () => {
                 .then((response) => {
                     const imgUrl = response.data.data.display_url;
                     if (imgUrl) {
-                        axios.post('http://localhost:5000/addbook', { name: bookDetails.name, author: bookDetails.author, price: bookDetails.price, imgUrl })
+                        axios.post(`${process.env.REACT_APP_SERVER}/addBook`, { name: bookDetails.name, author: bookDetails.author, price: bookDetails.price, imgUrl })
                             .then(res => {
                                 if(res.data) {
                                     setBookDetails({

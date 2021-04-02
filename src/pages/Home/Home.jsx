@@ -8,7 +8,7 @@ const Home = () => {
 
     const [books, setBooks] = useState(null);
     useEffect(() => {
-        axios.get('http://localhost:5000/books')
+        axios.get(`${process.env.REACT_APP_SERVER}/books`)
         .then(res => res.data)
         .then(data => setBooks(data))
     }, [])
